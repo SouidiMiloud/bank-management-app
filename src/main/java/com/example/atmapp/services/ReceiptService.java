@@ -56,7 +56,7 @@ public class ReceiptService {
         contentStream.close();
 
 
-        document.save("C:\\Users\\anass\\OneDrive\\Desktop\\receipt.pdf");
+        document.save("C:\\Users\\Electro Ragragui\\Desktop\\receipt.pdf");
 
         document.close();
 
@@ -100,7 +100,7 @@ public class ReceiptService {
         contentStream.close();
 
 
-        document.save("C:\\Users\\anass\\OneDrive\\Desktop\\withdrawalReceipt.pdf");
+        document.save("C:\\Users\\Electro Ragragui\\Desktop\\withdrawalReceipt.pdf");
 
         document.close();
 
@@ -128,7 +128,7 @@ public class ReceiptService {
     }
 
     public Map<String, String> getCustomerInfo(Long id){
-        String customerInfoAPI = "http://localhost:8080/user/getCustomerInfo?id="+id;
+        String customerInfoAPI = "http://localhost:8090/user/getCustomerInfo?id="+id;
 
         Map<String, String> response = restTemplate.getForObject(customerInfoAPI, Map.class);
 

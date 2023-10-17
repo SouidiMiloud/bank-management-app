@@ -18,7 +18,7 @@ public class AtmService {
 
     public Long getBalance(Long id) throws IOException {
 
-        String checkBalanceAPI = "http://localhost:8080/user/checkbalance?id="+id;
+        String checkBalanceAPI = "http://localhost:8090/user/checkbalance?id="+id;
 
 //      return restTemplate.postForEntity(checkBalanceAPI, new HttpEntity<>(id), Long.class).getBody();
         return restTemplate.getForEntity(checkBalanceAPI, Long.class).getBody();
@@ -29,7 +29,7 @@ public class AtmService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        String withdrawAPI = "http://localhost:8080/user/withdraw";
+        String withdrawAPI = "http://localhost:8090/user/withdraw";
 
 
 
