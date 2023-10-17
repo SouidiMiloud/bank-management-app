@@ -13,6 +13,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -54,11 +55,18 @@ public class UserController {
         userService.addNewUser(userRequest);
     }
 
-    @GetMapping("/checkbalance")
-    public ResponseEntity<Long> checkBalance(@RequestParam Long id){
+    //@GetMapping("/checkbalance")
+    //public ResponseEntity<Long> checkBalance(@RequestParam Long id){
 
-        return userService.getBalance(id);
+    //    return userService.getBalance(id);
+    //}
+
+    @GetMapping("/checkbalance")
+    public ResponseEntity<Long> checkBalance(@AuthenticationPrincipal AppUser appUser){
+
+        return userService.getBalance(appUser.getId());
     }
+
 
     @PostMapping("/withdraw")
     public ResponseEntity<String> withdraw(@RequestBody Map<String, Object> request){
@@ -78,6 +86,6 @@ public class UserController {
         return userService.putAmount(request);
     }
 
-
-
 }
+//eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwMDAwMDIiLCJleHAiOjE2OTk4ODk5NTMsImlhdCI6MTY5NzI5Nzk1M30.C0nrQHLV4c1QUqMlNmBGt5WCGqoE-s2fhAzczxdnEBZW-Hb3MQOONP33d-HZ6o1eKqK223ScJoh4w2VR7zV1Dw
+//eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIwMDAwMDEiLCJleHAiOjE2OTk4ODk3MzIsImlhdCI6MTY5NzI5NzczMn0.O3VvcHyjHYtjwucWvc1jh41k_94pvot2fFmJGXId-Yud_-B_161OAqaTyiHWzC2hH2smU5Swh1BFo2lYLKDpzw

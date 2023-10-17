@@ -1,13 +1,13 @@
 
-
 server:
+  port: 8090
   error:
     include-message: always
     include-binding-errors: always
 
 spring:
   datasource:
-    password: anass
+    password: postgre
     url: jdbc:postgresql://localhost:5432/bankapp
     username: postgres
   jpa:
